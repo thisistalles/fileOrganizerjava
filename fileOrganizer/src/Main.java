@@ -4,36 +4,56 @@ import java.io.IOException;
 import java.nio.file.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
-        String extensao = "";
+        Organizer orgPdf = new Organizer();
+        Organizer orgJpg = new Organizer();
+        Organizer orgPng = new Organizer();
+        Organizer orgJpeg = new Organizer();
+        Organizer orgMov = new Organizer();
+        Organizer orgMp3 = new Organizer();
+        Organizer orgMp4 = new Organizer();
+        Organizer orgWav = new Organizer();
 
-        // Caminho da pasta de origem
-        Path pastaOrigem = Paths.get("C:/Users/Talles/Downloads/");
 
-        // Caminho da pasta de destino
-        Path pastaDestino = Paths.get("C:/Users/Talles/Downloads/Organização/IMAGENS/");
+        orgPdf.setDestino(Paths.get("C:/Users/Talles/Downloads/Organização/PDF"));
+        orgPdf.setType("PDF");
+        orgPdf.fileCheck();
+
+        orgJpg.setDestino(Paths.get("C:/Users/Talles/Downloads/Organização/IMAGENS/JPG"));
+        orgJpg.setType("JPG");
+        orgJpg.fileCheck();
 
 
-        try (DirectoryStream<Path> stream = Files.newDirectoryStream(pastaOrigem)) {
+        orgJpeg.setDestino(Paths.get("C:/Users/Talles/Downloads/Organização/IMAGENS/JPEG"));
+        orgJpeg.setType("JPEG");
+        orgJpeg.fileCheck();
 
-            for (Path arquivo : stream) {
-                // Verifica se é um arquivo regular
-                if (Files.isRegularFile(arquivo)) {
+        orgPng.setDestino(Paths.get("C:/Users/Talles/Downloads/Organização/IMAGENS/PNG"));
+        orgPng.setType("PNG");
+        orgPng.fileCheck();
 
-                    Path nome = arquivo.getFileName();
-                    String name = nome.toString();
-                    extensao = FilenameUtils.getExtension(name);
+        orgPng.setDestino(Paths.get("C:/Users/Talles/Downloads/Organização/WORD"));
+        orgPng.setType("DOCX");
+        orgPng.fileCheck();
 
-                    if (extensao.equalsIgnoreCase("jpg")) {
-                        Files.move(arquivo, pastaDestino.resolve(arquivo.getFileName()), StandardCopyOption.REPLACE_EXISTING);
-                        System.out.println("Arquivo movido: " + arquivo.getFileName());
-                    }
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        orgMov.setDestino(Paths.get("C:/Users/Talles/Downloads/Organização/VIDEOS/MOV"));
+        orgMov.setType("MOV");
+        orgMov.fileCheck();
+
+        orgMp3.setDestino(Paths.get("C:/Users/Talles/Downloads/Organização/AUDIOS/MP3"));
+        orgMp3.setType("MP3");
+        orgMp3.fileCheck();
+
+        orgMp4.setDestino(Paths.get("C:/Users/Talles/Downloads/Organização/VIDEOS/MP4"));
+        orgMp4.setType("MP4");
+        orgMp4.fileCheck();
+
+        orgWav.setDestino(Paths.get("C:/Users/Talles/Downloads/Organização/AUDIOS/WAV"));
+        orgWav.setType("WAV");
+        orgWav.fileCheck();
+
+
     }
 }
 
