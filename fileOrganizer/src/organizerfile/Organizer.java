@@ -47,119 +47,135 @@ public class Organizer {
 
 
     public void fileCheck() {
-        try (DirectoryStream<Path> stream = Files.newDirectoryStream(origem)) {
-            for (Path arquivo : stream) {
-                if (Files.isRegularFile(arquivo)) {
-                    Path nome = arquivo.getFileName();
-                    String name = nome.toString().toLowerCase();
-                    setArquivo(arquivo); // Corrigindo aqui
-                    setExtensao(FilenameUtils.getExtension(name));
+        while (true) {
 
-                    switch (getExtensao()) {
-                        case "pdf":
-                            setDestino(Paths.get("D:/Gtalles/Downloads/Organização/PDF"));
-                            moveFile();
-                            break;
+            try (DirectoryStream<Path> stream = Files.newDirectoryStream(origem)) {
+                for (Path arquivo : stream) {
+                    if (Files.isRegularFile(arquivo)) {
+                        Path nome = arquivo.getFileName();
+                        String name = nome.toString().toLowerCase();
+                        setArquivo(arquivo); // Corrigindo aqui
+                        setExtensao(FilenameUtils.getExtension(name));
 
-                        case "png":
-                            setDestino(Paths.get("D:/Gtalles/Downloads/Organização/IMAGENS/PNG"));
-                            moveFile();
-                            break;
+                        switch (getExtensao()) {
+                            case "pdf":
+                                setDestino(Paths.get("D:/Gtalles/Downloads/Organizacao/PDF"));
+                                moveFile();
+                                break;
 
-                        case "jpeg":
-                            setDestino(Paths.get("D:/Gtalles/Downloads/Organização/IMAGENS/JPEG"));
-                            moveFile();
-                            break;
+                            case "png":
+                                setDestino(Paths.get("D:/Gtalles/Downloads/Organizacao/IMAGENS/PNG"));
+                                moveFile();
+                                break;
 
-                        case "mov":
-                            setDestino(Paths.get("D:/Gtalles/Downloads/Organização/VIDEOS/MOV"));
-                            moveFile();
-                            break;
+                            case "jpeg":
+                                setDestino(Paths.get("D:/Gtalles/Downloads/Organizacao/IMAGENS/JPEG"));
+                                moveFile();
+                                break;
 
-                        case "mp3":
-                            setDestino(Paths.get("D:/Gtalles/Downloads/Organização/AUDIOS/MP3"));
-                            moveFile();
-                            break;
+                            case "mov":
+                                setDestino(Paths.get("D:/Gtalles/Downloads/Organizacao/VIDEOS/MOV"));
+                                moveFile();
+                                break;
 
-                        case "mp4":
-                            setDestino(Paths.get("D:/Gtalles/Downloads/Organização/VIDEOS/MP4"));
-                            moveFile();
-                            break;
+                            case "mp3":
+                                setDestino(Paths.get("D:/Gtalles/Downloads/Organizacao/AUDIOS/MP3"));
+                                moveFile();
+                                break;
 
-                        case "wav":
-                            setDestino(Paths.get("D:/Gtalles/Downloads/Organização/AUDIOS/WAV"));
-                            moveFile();
-                            break;
+                            case "mp4":
+                                setDestino(Paths.get("D:/Gtalles/Downloads/Organizacao/VIDEOS/MP4"));
+                                moveFile();
+                                break;
 
-                        case "docx":
-                            setDestino(Paths.get("D:/Gtalles/Downloads/Organização/WORD"));
-                            moveFile();
-                            break;
+                            case "wav":
+                                setDestino(Paths.get("D:/Gtalles/Downloads/Organizacao/AUDIOS/WAV"));
+                                moveFile();
+                                break;
 
-                        case "jpg":
-                            setDestino(Paths.get("D:/Gtalles/Downloads/Organização/IMAGENS/JPG"));
-                            moveFile();
-                            break;
+                            case "docx":
+                                setDestino(Paths.get("D:/Gtalles/Downloads/Organizacao/WORD"));
+                                moveFile();
+                                break;
 
-                        case "txt":
-                            setDestino(Paths.get("D:/Gtalles/Downloads/Organização/TEXTOS"));
-                            moveFile();
-                            break;
+                            case "jpg":
+                                setDestino(Paths.get("D:/Gtalles/Downloads/Organizacao/IMAGENS/JPG"));
+                                moveFile();
+                                break;
 
-                        case "csv":
-                            setDestino(Paths.get("D:/Gtalles/Downloads/Organização/DADOS"));
-                            moveFile();
-                            break;
+                            case "txt":
+                                setDestino(Paths.get("D:/Gtalles/Downloads/Organizacao/TEXTOS"));
+                                moveFile();
+                                break;
 
-                        case "xlsx":
-                            setDestino(Paths.get("D:/Gtalles/Downloads/Organização/EXCEL"));
-                            moveFile();
-                            break;
+                            case "csv":
+                                setDestino(Paths.get("D:/Gtalles/Downloads/Organizacao/DADOS"));
+                                moveFile();
+                                break;
 
-                        case "pptx":
-                            setDestino(Paths.get("D:/Gtalles/Downloads/Organização/POWERPOINT"));
-                            moveFile();
-                            break;
+                            case "xlsx":
+                                setDestino(Paths.get("D:/Gtalles/Downloads/Organizacao/EXCEL"));
+                                moveFile();
+                                break;
 
-                        case "zip":
-                            setDestino(Paths.get("D:/Gtalles/Downloads/Organização/ARQUIVOS_COMPACTADOS/ZIP"));
-                            moveFile();
-                            break;
+                            case "pptx":
+                                setDestino(Paths.get("D:/Gtalles/Downloads/Organizacao/POWERPOINT"));
+                                moveFile();
+                                break;
 
-                        case "rar":
-                            setDestino(Paths.get("D:/Gtalles/Downloads/Organização/ARQUIVOS_COMPACTADOS/RAR"));
-                            moveFile();
-                            break;
+                            case "zip":
+                                setDestino(Paths.get("D:/Gtalles/Downloads/Organizacao/ARQUIVOS_COMPACTADOS/ZIP"));
+                                moveFile();
+                                break;
 
-                        case "exe":
-                            setDestino(Paths.get("D:/Gtalles/Downloads/Organização/APLICATIVOS"));
-                            moveFile();
-                            break;
+                            case "rar":
+                                setDestino(Paths.get("D:/Gtalles/Downloads/Organizacao/ARQUIVOS_COMPACTADOS/RAR"));
+                                moveFile();
+                                break;
 
-                        default:
-                            System.out.println("Extensão não suportada: " + getExtensao());
-                            break;
+                            case "exe":
+                                setDestino(Paths.get("D:/Gtalles/Downloads/Organizacao/APLICATIVOS"));
+                                moveFile();
+                                break;
+
+                            default:
+                                System.out.println("Extensão não reconhecida: " + getExtensao());
+                                setDestino(Paths.get("D://Gtalles//Downloads//Organizacao//DESCONHECIDO"));
+                                moveFile();
+                                break;
+                        }
+
+
                     }
-
-
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                System.err.println("Erro ao aguardar o próximo intervalo: " + e.getMessage());
+            }
         }
     }
 
     public void moveFile() {
         try {
-            if (getArquivo() != null) { // Verifica se arquivo não é nulo
-                Files.move(getArquivo(), getDestino().resolve(getArquivo().getFileName()), StandardCopyOption.REPLACE_EXISTING);
-                System.out.println("Arquivo movido: " + getArquivo().getFileName());
+            Path arquivo = getArquivo();
+            if (arquivo != null) {
+                if (arquivo.getFileName().toString().endsWith(".tmp") || arquivo.getFileName().toString().endsWith(".opdownload")) {
+                    System.out.println("Arquivo ignorado: " + arquivo.getFileName() + " devido à sua extensão");
+                    return; // Se a extensão for "tmp", retorna sem fazer nada
+                }
+
+                Path destino = getDestino().resolve(arquivo.getFileName());
+                Files.move(arquivo, destino, StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("Arquivo movido: " + arquivo.getFileName() + " para pasta: " + destino);
             }
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
-
-
 }
