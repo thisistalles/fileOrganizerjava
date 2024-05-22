@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="fileOrganizer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/fileOrganizer_jar</output-path>
+    <root id="archive" name="fileOrganizer.jar">
+      <element id="module-output" name="fileOrganizer" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
